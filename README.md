@@ -1,4 +1,9 @@
-# how to
+# Otus coursework
+
+## description
+Python manager of Cisco Trex. The main feature of this that it can handle several TREX instances simultaneously
+
+## how to
 1. configure a stand from a scheme below
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
 
@@ -35,6 +40,7 @@ Example:
           threads: [2,3,4,5,6,7,8,9]
 ```
 you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file
+
 5. run inbuilt trex daemon
 ```
 # server 1
