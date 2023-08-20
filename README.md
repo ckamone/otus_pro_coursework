@@ -9,18 +9,20 @@ installation manual
 
 2. create cfg
 
-3. run trex daemon
+3. run inbuilt trex daemon
 ```
+# server 1
 python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
 python3 ./trex_daemon_server -p 8090 start 
+# server 2
 python3 master_daemon.py -p 8093 --trex-daemon-port 8092 start;
 python3 ./trex_daemon_server -p 8092 start 
 ...
 ```
 
-4. make env
-`python3 -m venv venv`
-source venv/bin/activate
+4. make env\
+`python3 -m venv venv`\
+`source venv/bin/activate`
 
 5. install requirements
 pip install requirements.txt
