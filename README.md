@@ -34,6 +34,7 @@ Example:
         - socket: 0
           threads: [2,3,4,5,6,7,8,9]
 ```
+you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file
 5. run inbuilt trex daemon
 ```
 # server 1
@@ -45,7 +46,7 @@ python3 ./trex_daemon_server -p 8092 start
 ...
 ```
 
-6. create python environment\
+6. download this repo and create python environment\
 `python3 -m venv venv`\
 `source venv/bin/activate`
 
