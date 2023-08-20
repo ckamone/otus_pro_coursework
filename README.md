@@ -7,17 +7,14 @@ Python manager of Cisco Trex. The main feature of this that it can handle severa
 1. configure a stand from a scheme below
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
 
-2. set up dut via ansible\
-`ansible-playbook -vvvv -i inventory/hosts playbook/tst.yml --ask-pass`
-
-3. Download and install trex to yours generator server\
+2. Download and install trex to yours generator server\
 `mkdir /opt/trex`\
 `cd /opt/trex`\
 `wget --no-cache --no-check-certificate https://trex-tgn.cisco.com/trex/release/v3.03`\
 `tar -xzvf v3.03`\
 you can find instructions in trex installation [manual](https://trex-tgn.cisco.com/trex/doc/trex_manual.html#_download_and_installation)
 
-4. create trex server cfg\
+3. create trex server cfg\
 `./dpdk_setup_ports.py -i`\
 __/etc/trex_cfg.yaml__ will be created.\
 Example:
@@ -41,7 +38,7 @@ Example:
 ```
 you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file
 
-5. run inbuilt trex daemon
+4. run inbuilt trex daemon
 ```
 # server 1
 python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
@@ -52,12 +49,15 @@ python3 ./trex_daemon_server -p 8092 start
 ...
 ```
 
-6. download this repo and create python environment\
+5. download this repo and create python environment\
 `python3 -m venv venv`\
 `source venv/bin/activate`
 
-7. install requirements\
+6. install requirements\
 `pip install requirements.txt`
+
+7. set up dut via ansible\
+`ansible-playbook -vvvv -i inventory/hosts playbook/tst.yml --ask-pass`
 
 8. install docker and run docker compose\
 `docker compose up -d`
