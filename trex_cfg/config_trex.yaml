@@ -1,0 +1,21 @@
+
+- version: 2
+  zmq_rpc_port: 4505
+  zmq_pub_port: 4504
+  prefix: setup1
+  interfaces: ['05:00.0', '05:00.1'] # intel 82599 #1
+  port_info:
+
+      - ip: 10.1.1.254
+        default_gw: 10.1.1.1
+      - ip: 100.1.1.254
+        default_gw: 100.1.1.1
+
+
+  platform:
+      master_thread_id: 0
+      latency_thread_id: 1
+      dual_if:
+        - socket: 0
+          threads: [9,8,7,6]
+
