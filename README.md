@@ -1,3 +1,4 @@
+# how to
 1. get trex
 wget --no-cache --no-check-certificate https://trex-tgn.cisco.com/trex/release/v3.03
 tar -xzvf latest
@@ -28,5 +29,5 @@ export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_cont
 8. run test
 python3 main.py
 
-tst
-image::doc/images/scheme.png[title="",align="center",width=300, link="https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png"]
+
+![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
