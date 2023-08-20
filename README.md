@@ -36,7 +36,7 @@ Example:
         - socket: 0
           threads: [2,3,4,5,6,7,8,9]
 ```
-you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file
+you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file (you can use example from repo)
 
 4. run inbuilt trex daemon
 ```
