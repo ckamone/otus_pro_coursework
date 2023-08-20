@@ -1,19 +1,24 @@
 # how to
-1. get trex
+1. configure a stand from a scheme below
+![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
+
+2. Download and install trex to yours generator server
 wget --no-cache --no-check-certificate https://trex-tgn.cisco.com/trex/release/v3.03
 tar -xzvf latest
+installation manual
 
 2. create cfg
 
 3. run trex daemon
+```
 python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
 python3 ./trex_daemon_server -p 8090 start 
 python3 master_daemon.py -p 8093 --trex-daemon-port 8092 start;
 python3 ./trex_daemon_server -p 8092 start 
-...
+...```
 
 4. make env
-python3 -m venv venv
+`python3 -m venv venv``
 source venv/bin/activate
 
 5. install requirements
@@ -30,4 +35,3 @@ export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_cont
 python3 main.py
 
 
-![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
