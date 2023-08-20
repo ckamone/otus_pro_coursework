@@ -38,7 +38,7 @@ Example:
 ```
 you will need to add __zmq_rpc_port__, __zmq_pub_port__ and unique __prefix__ (server setup name) to cfg file (you can use example from repo)
 
-4. run inbuilt trex daemon
+4. run inbuilt unique trex daemon on each server
 ```
 # server 1
 python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
