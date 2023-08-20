@@ -8,7 +8,7 @@ TREX_INSTANCES = [
 ]
 
 PROFILE = '/home/user/coursework/trex_traffic/udp_1pkt_simple.py'
-SPEED_UNITS = 'mbps'
+SPEED_UNITS = 'gbps'
 MIN_SPEED = 0.1
 MAX_SPEED = 1
 STEP = 0.1
