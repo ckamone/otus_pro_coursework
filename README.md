@@ -15,10 +15,11 @@ python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
 python3 ./trex_daemon_server -p 8090 start 
 python3 master_daemon.py -p 8093 --trex-daemon-port 8092 start;
 python3 ./trex_daemon_server -p 8092 start 
-...```
+...
+```
 
 4. make env
-`python3 -m venv venv``
+`python3 -m venv venv`
 source venv/bin/activate
 
 5. install requirements
