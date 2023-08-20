@@ -1,0 +1,126 @@
+---
+
+- name: Configuration NAT and firewall on DUT
+  hosts: dut1
+  remote_user: vyos
+  gather_facts: false
+  tasks:
+    - name: Configuration Base
+      vyos.vyos.vyos_command:
+        commands:
+          - configure
+          - set interfaces ethernet eth4 address '172.19.230.1/24'
+          - set interfaces ethernet eth5 address '172.19.231.1/24'
+          - set interfaces ethernet eth4 description 'LAN Interface'
+          - set interfaces ethernet eth5 description 'WAN Interface'
+          - set protocols static route 16.0.0.0/8 next-hop 172.19.230.2
+          - set protocols static route 48.0.0.0/8 next-hop 172.19.231.2
+          - commit
+          - save
+    - name: Configuration NAT
+      vyos.vyos.vyos_command:
+        commands:
+          - configure
+          - set nat source rule 100 outbound-interface 'eth5'
+          - set nat source rule 100 source address '16.0.0.0/8'
+          - set nat source rule 100 translation address 172.19.230.2
+          - set nat source rule 101 outbound-interface 'eth4'
+          - set nat source rule 101 source address '48.0.0.0/8'
+          - set nat source rule 101 translation address 172.19.231.2
+          - commit
+          - save
+    - name: Configuration WAN-OUT firewall
+      vyos.vyos.vyos_command:
+        commands:
+          - configure
+          # 25 fw rules
+          - set firewall name WAN-OUT rule 1000 action 'drop'
+          - set firewall name WAN-OUT rule 1000 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1000 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1001 action 'drop'
+          - set firewall name WAN-OUT rule 1001 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1001 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1002 action 'drop'
+          - set firewall name WAN-OUT rule 1002 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1002 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1003 action 'drop'
+          - set firewall name WAN-OUT rule 1003 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1003 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1004 action 'drop'
+          - set firewall name WAN-OUT rule 1004 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1004 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1005 action 'drop'
+          - set firewall name WAN-OUT rule 1005 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1005 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1006 action 'drop'
+          - set firewall name WAN-OUT rule 1006 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1006 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1007 action 'drop'
+          - set firewall name WAN-OUT rule 1007 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1007 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1008 action 'drop'
+          - set firewall name WAN-OUT rule 1008 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1008 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1009 action 'drop'
+          - set firewall name WAN-OUT rule 1009 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1009 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1010 action 'drop'
+          - set firewall name WAN-OUT rule 1010 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1010 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1011 action 'drop'
+          - set firewall name WAN-OUT rule 1011 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1011 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1012 action 'drop'
+          - set firewall name WAN-OUT rule 1012 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1012 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1013 action 'drop'
+          - set firewall name WAN-OUT rule 1013 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1013 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1014 action 'drop'
+          - set firewall name WAN-OUT rule 1014 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1014 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1015 action 'drop'
+          - set firewall name WAN-OUT rule 1015 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1015 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1016 action 'drop'
+          - set firewall name WAN-OUT rule 1016 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1016 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1017 action 'drop'
+          - set firewall name WAN-OUT rule 1017 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1017 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1018 action 'drop'
+          - set firewall name WAN-OUT rule 1018 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1018 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1019 action 'drop'
+          - set firewall name WAN-OUT rule 1019 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1019 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1020 action 'drop'
+          - set firewall name WAN-OUT rule 1020 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1020 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1021 action 'drop'
+          - set firewall name WAN-OUT rule 1021 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1021 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1022 action 'drop'
+          - set firewall name WAN-OUT rule 1022 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1022 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1023 action 'drop'
+          - set firewall name WAN-OUT rule 1023 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1023 destination address 10.0.1.0/24
+          - set firewall name WAN-OUT rule 1024 action 'drop'
+          - set firewall name WAN-OUT rule 1024 source address 10.0.0.0/24
+          - set firewall name WAN-OUT rule 1024 destination address 10.0.1.0/24
+          # trex traffic rule
+          - set firewall name WAN-OUT rule 1025 action 'accept'
+          - set firewall name WAN-OUT rule 1025 source address 172.19.0.0/16
+          - set firewall name WAN-OUT rule 1025 destination address 172.19.0.0/16
+          - set firewall name WAN-OUT rule 1026 action 'accept'
+          - set firewall name WAN-OUT rule 1026 source address 16.0.0.0/8
+          - set firewall name WAN-OUT rule 1026 destination address 48.0.0.0/8
+          - set firewall name WAN-OUT rule 1027 action 'accept'
+          - set firewall name WAN-OUT rule 1027 source address 48.0.0.0/8
+          - set firewall name WAN-OUT rule 1027 destination address 16.0.0.0/8
+          - commit
+          - set interfaces ethernet eth4 firewall in name 'WAN-OUT'
+          - set interfaces ethernet eth5 firewall in name 'WAN-OUT'
+          - commit
+          - save

@@ -2,14 +2,17 @@
 1. configure a stand from a scheme below
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/scheme.png)
 
-2. Download and install trex to yours generator server\
+2. set up dut via ansible\
+`ansible-playbook -vvvv -i inventory/hosts playbook/tst.yml --ask-pass`
+
+3. Download and install trex to yours generator server\
 `mkdir /opt/trex`\
 `cd /opt/trex`\
 `wget --no-cache --no-check-certificate https://trex-tgn.cisco.com/trex/release/v3.03`\
 `tar -xzvf v3.03`\
 you can find instructions in trex installation [manual](https://trex-tgn.cisco.com/trex/doc/trex_manual.html#_download_and_installation)
 
-2. create trex server cfg\
+4. create trex server cfg\
 `./dpdk_setup_ports.py -i`\
 __/etc/trex_cfg.yaml__ will be created.\
 Example:
@@ -31,7 +34,7 @@ Example:
         - socket: 0
           threads: [2,3,4,5,6,7,8,9]
 ```
-3. run inbuilt trex daemon
+5. run inbuilt trex daemon
 ```
 # server 1
 python3 master_daemon.py -p 8091 --trex-daemon-port 8090 start;
@@ -42,28 +45,28 @@ python3 ./trex_daemon_server -p 8092 start
 ...
 ```
 
-4. create python environment\
+6. create python environment\
 `python3 -m venv venv`\
 `source venv/bin/activate`
 
-5. install requirements\
+7. install requirements\
 `pip install requirements.txt`
 
-6. install docker and run docker compose\
+8. install docker and run docker compose\
 `docker compose up -d`
 
-7. configure grafana DB source and dashboard
+9. configure grafana DB source and dashboard
 
-8. configure test params in __./test_config/config.py__
+10. configure test params in __./test_config/config.py__
 
-9. get trex APIs\
+11. get trex APIs
 ```
 export PYTHONPATH=/home/user/coursework/v3.03/automation/trex_control_plane/interactive/;
 export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_control_plane/stf
 ```
 
-10. run test\
+12. run test\
 `python3 main.py -l ./log/test1.txt -m stl`
 
-11. watch live stats in grafana
+13. watch live stats in grafana
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/grafana_example.png)

@@ -1,0 +1,8 @@
+[dut1]
+172.20.0.10
+
+[dut1:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_user=vyos
+ansible_network_os=vyos
+ansible_python_interpreter=/usr/bin/python3
