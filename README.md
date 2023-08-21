@@ -90,7 +90,7 @@ export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_cont
 ```
 
 3. запуск теста\
-`python3 main.py -l ./log/test1.txt -m stl`
+`python3 main.py -l ./log/test1.txt -m stl`\
 -l - путь к лог файлу (опционально)\
 -m - режим работы (stl - stateless, astf - advanced statefull)
 
