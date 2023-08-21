@@ -96,7 +96,7 @@ export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_cont
 
 4. Проверка работы live-статистики в grafana
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/grafana_example2.png)
-Пока реализовано 3 графика. 
+Пока реализовано 3 графика для каждого TREX instance. 
 Это следующие графики:
 - скорость TX, RX - данный график основной и показывает результат производительности DUT;
 - график загрузки CPU сервера TREX - данный график показывает насколько загружен генератор во время теста;
