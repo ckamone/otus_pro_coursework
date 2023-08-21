@@ -92,6 +92,10 @@ class TestManager:
         trex_client.reset(ports=self.ports)
 
     @cases(CLIENTS)
+    def setup_ports(self, trex_client):
+        trex_client.set_port_attr(self.ports, promiscuous=True)
+
+    @cases(CLIENTS)
     def stl_load_traffic_profile(self, trex_client):
         for port in self.ports:
             path = PROFILE
@@ -140,6 +144,7 @@ class TestManager:
 
 def test_stl_breaking_point(tst_mng, db_mng):
     tst_mng.acquire_ports()
+    tst_mng.setup_ports()
     tst_mng.stl_load_traffic_profile()
     tst_mng.stl_start_traffic()
     while tst_mng.speed < MAX_SPEED:

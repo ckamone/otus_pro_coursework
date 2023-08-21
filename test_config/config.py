@@ -7,9 +7,14 @@ TREX_INSTANCES = [
         "trex_async_port": "4504",
         "cfg": "/home/user/coursework/trex_cfg/config_trex.yaml",
     },
-    # {'trex_ip': '127.0.0.1', 'master_daemon': '8093', 'daemon_ports': '8092',
-    #  'trex_sync_port': '4509', 'trex_async_port': '4508',
-    #  'cfg': '/home/user/coursework/trex_cfg/config_trex2.yaml'},
+    {
+        "trex_ip": "127.0.0.1",
+        "master_daemon": "8093",
+        "daemon_ports": "8092",
+        "trex_sync_port": "4509",
+        "trex_async_port": "4508",
+        "cfg": "/home/user/coursework/trex_cfg/config_trex2.yaml",
+    },
 ]
 
 PROFILE = "/home/user/coursework/trex_traffic/udp_1pkt_simple.py"

@@ -93,5 +93,5 @@ export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_cont
 -m - режим работы (stl - stateless, astf - advanced statefull)
 
 13. Проверка работы live-статистики в grafana
-![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/grafana_example.png)
+![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/grafana_example2.png)
 Пока реализовано 3 графика. Это график скорости TX, RX; график загрузки CPU сервера TREX; график количества PPS (пакетов в секунду).
