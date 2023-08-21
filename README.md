@@ -71,7 +71,8 @@ python3 ./trex_daemon_server -p 8092 start
 
 9. Grafana запускается на 3000 порту. необходимо перейти и настроить в ней источних данных и дэшборд. (__admin/admin__)
 
-10. Параметры теста задаются здесь __./test_config/config.py__\
+## Run perfomance testing
+1. Параметры теста задаются здесь __./test_config/config.py__\
 TREX_INSTANCES - список инстансов TREX. Список состоит из словаря с параметрами инстанса TREX.\
 PROFILE - путь к профайлу трафика\
 SPEED_UNITS - единица измерения скорости\
@@ -81,17 +82,17 @@ STEP - шаг прибавления скорости\
 DURATION - длительность шага\
 UDP_PAYLOAD_SIZE -размер payload UDP пакета
 
-11. перед запуском настроить переменные окружения для API TREX'а
+2. перед запуском настроить переменные окружения для API TREX'а
 ```
 export PYTHONPATH=/home/user/coursework/v3.03/automation/trex_control_plane/interactive/;
 export PYTHONPATH=${PYTHONPATH}:/home/user/coursework/v3.03/automation/trex_control_plane/stf
 ```
 
-12. запуск теста\
+3. запуск теста\
 `python3 main.py -l ./log/test1.txt -m stl`
 -l - путь к лог файлу (опционально)\
 -m - режим работы (stl - stateless, astf - advanced statefull)
 
-13. Проверка работы live-статистики в grafana
+4. Проверка работы live-статистики в grafana
 ![SCHEME!](https://github.com/ckamone/otus_pro_coursework/blob/master/doc/images/grafana_example2.png)
 Пока реализовано 3 графика. Это график скорости TX, RX; график загрузки CPU сервера TREX; график количества PPS (пакетов в секунду).
